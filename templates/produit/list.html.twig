@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}liste des produits | {{ parent() }}{% endblock %}
+
+{% block body %}
+
+    <section class="series-list">
+        {% for produit in produits %}
+            <article>
+                <a href="{{ path('produit_detail', {'id': produit.id}) }}" title="détail du produit">{{ produit.libelle }}
+                    <img src="{{ asset('img/' ~ produit.image) }}" alt="{{ produit.libelle }}">
+                </a>
+            </article>
+        {% endfor %}  
+    </section>
+{% endblock %}
+
+
+{# 
+<div class="container">
+    <div class="row">
+        <div class="produit-list">
+                {% for produit in produits %}
+                    <div class="row mg-l-2">
+                        <article>
+                            <a href="{{ path('produit_detail', {'id': produit.id}) }}" title="détail du produit">{{ produit.libelle }}
+                                <img src="{{ asset('img/' ~ produit.image) }}" alt="{{ produit.libelle }}">
+                            </a>
+                        </article>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+      
+    </section>
+{% endblock %} #}

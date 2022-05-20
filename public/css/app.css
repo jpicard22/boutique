@@ -1,0 +1,127 @@
+body { 
+    margin: 0; 
+    display: 
+    flex; 
+    flex-direction: 
+    column; min-height: 100vh; 
+    font-family: 'Asul', sans-serif; 
+    background-color: rgb(186, 190, 194); 
+} 
+
+.container { 
+    max-width: 800px; 
+    margin: auto; 
+    padding: 0 10px;
+} 
+
+header { 
+    background-color: #126c88; 
+    padding: 1rem 0; 
+} 
+
+header h1 { 
+    margin: 0 0 10px 0; 
+} 
+
+header a { 
+    text-decoration: none; 
+    color: inherit; 
+} 
+
+header nav a:hover { 
+    text-decoration: underline; 
+} 
+
+.header-logo { 
+    font-size: 3rem; 
+    font-weight: normal; 
+} 
+
+.header-logo img { 
+    max-width: 80px; 
+    margin-right: 35px; 
+}
+
+.header-nav { 
+    display: flex; 
+} 
+
+main { 
+    flex: 1; 
+    padding: 2rem 0; 
+    background-color: #FFF1E6; 
+} 
+
+footer { 
+    padding: 2rem 0; 
+    text-align: center; 
+    background-color: #206660; 
+}
+
+.header-nav a { 
+    margin-right: 6rem; 
+} 
+
+main h2 { 
+    margin-top: 10; 
+}
+
+main a {
+    margin-left: 2rem;
+    color: #8c6956;
+}
+
+.alert { 
+    font-size: 1.5rem; 
+    font-weight: bold; 
+    padding: 1rem; 
+    margin: 1rem; 
+    border-radius: 5px; 
+    text-align: center; 
+} 
+
+.alert-success {
+    background-color: #a2a232;
+} 
+
+.alert-error {
+    background-color: #d4550e;
+} 
+
+/* formulaires */ 
+label { 
+    display: block; 
+} 
+
+input, 
+textarea { 
+    box-sizing: border-box; 
+    width: 50%; 
+    margin-bottom: 1rem; 
+} 
+
+button { 
+    padding: 0.5rem 0.7rem; 
+    font-family: inherit; 
+}
+/* 
+.produit-list {
+    display: grid;
+    grid-gap: 50px;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+} */
+
+
+.series-list {
+    display: grid;
+    grid-gap: 250px;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+}
+
+@media (max-width: 1199.98px) {
+
+  .half .contents,
+  .half .bg {
+    width: 100%;
+  }
+}

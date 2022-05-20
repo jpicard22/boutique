@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ produit.libelle}} | {{ parent() }} {% endblock %}
+
+{% block body %}
+
+    <div class="produit-details">
+        <div>
+            <img src="{{ asset ('img/' ~ produit.image) }}" alt="{{ produit.libelle }}">
+        </div>
+
+        <div class="produit-details-infos">
+            <h2>{{ produit.libelle }}</h2>
+            <div>Référence : {{ produit.reference }}</div>
+            <div>Prix : {{ produit.prix }}</div>
+            <div>Stock : {{ produit.stock }}</div>
+            <div>Date d'ajout {{ produit.dateAjout | date("Y-m-d") }}</div>
+        </div>
+    </div>
+{% endblock %}

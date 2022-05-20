@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>
+      {% block title %}Boutique Bonus{% endblock %}
+    </title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Asul:wght@400;700&display=swap">
+    <link rel="icon" href="{{ asset('img/favicon.png') }}">
+    {% block stylesheets %}{{ encore_entry_link_tags('app') }}
+      <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+      {# <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous"> #}
+    {% endblock %}
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1 class="header-logo">
+          <a href="{{ path('app_home') }}" title="Go back to homepage">
+            <img src="{{ asset('img/deco.jpg') }}" alt="Logo">La Boutique de Jérôme
+          </a>
+        </h1>
+        <nav class="header-nav">
+          <a href="{{ path('produit_list') }}" title="Liste des articles">liste des articles</a>
+          <a href="{{ path('produit_create') }}" title="Ajout">Ajout d'un article</a>
+          <a href="{{ path('categorie_list') }}" title="Categorie">Les catégories</a>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <div class="container">
+        {% for label, messages in app.flashes %}
+          {% for message in messages %}
+            <div class="alert alert-{{ label }}">
+              {{ message }}
+            </div>
+          {% endfor %}
+        {% endfor %}
+
+        {% block body %}{% endblock %}
+
+      </div>
+    </main>
+    <footer>
+      <div class="container">
+        © Boutique TP Bonus
+        {{ "now"|date("Y") }}
+      </div>
+    </footer>
+    {% block javascripts %}<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+{% endblock %}
+  </body>
+</html>

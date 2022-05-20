@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}liste des catégories | {{ parent() }}{% endblock %}
+
+{% block body %}
+
+<div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-6">
+        {% for categorie in categories %}
+        <article>
+            <h3>{{ categorie.libelleC }}</h3>
+        </article>
+    </div>
+</div>
+        {% endfor %}
+    </section>
+{% endblock %}
