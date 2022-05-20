@@ -15,6 +15,10 @@
             <div>Prix : {{ produit.prix }}</div>
             <div>Stock : {{ produit.stock }}</div>
             <div>Date d'ajout {{ produit.dateAjout | date("Y-m-d") }}</div>
+            <div>Categorie : {% for cat in produit.categories %} {{ cat.libelleC}}
+                
+                {% endfor %}
+            </div>
         </div>
     </div>
 {% endblock %}

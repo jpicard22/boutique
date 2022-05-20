@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ProduitRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -55,10 +57,17 @@ class Produit
      */
     private $image;
 
-     /**
-     * @ORM\ManyToOne(targetEntity=Categorie::class, inversedBy="produits")
+    /**
+     * @ORM\ManyToMany(targetEntity=Categorie::class, inversedBy="produits")
      */
-    private $categorie;
+    private $categories;
+
+    public function __construct()
+    {
+        $this->categories = new ArrayCollection();
+    }
+
+    
 
     public function getId(): ?int
     {
@@ -137,15 +146,29 @@ class Produit
         return $this;
     }
 
-    public function getCategorie(): ?Categorie
+    /**
+     * @return Collection<int, Categorie>
+     */
+    public function getCategories(): Collection
     {
-        return $this->categorie;
+        return $this->categories;
     }
 
-    public function setCategorie(?Categorie $categorie): self
+    public function addCategory(Categorie $category): self
     {
-        $this->categorie = $categorie;
+        if (!$this->categories->contains($category)) {
+            $this->categories[] = $category;
+        }
 
         return $this;
     }
+
+    public function removeCategory(Categorie $category): self
+    {
+        $this->categories->removeElement($category);
+
+        return $this;
+    }
+
+    
 }

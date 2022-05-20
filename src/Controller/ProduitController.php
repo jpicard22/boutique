@@ -37,19 +37,19 @@ class ProduitController extends AbstractController
     public function detail(ProduitRepository $produitRepository, int $id, CategorieRepository $categorieRepository): Response
     {
         $produit = $produitRepository->find($id);
-       
-        $categories = $categorieRepository->findAll();
+        // dd($produit);
+        // $categories = $categorieRepository->findAll();
 
         if (!$produit){
             throw $this->createNotFoundException('Le produit n\'existe pas');
             }
-        if (!$categories){
-            throw $this->createNotFoundException('La catégorie n\'existe pas');
-            }
+        // if (!$categories){
+        //     throw $this->createNotFoundException('La catégorie n\'existe pas');
+        //     }
 
         return $this->render('produit/detail.html.twig', [
-            "produit"=>$produit,
-            "categories"=>$categories
+            "produit"=>$produit
+            // "categories"=>$categories
         ]);
     }
 

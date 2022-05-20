@@ -30,9 +30,11 @@ class Categorie
     private $dateAjoutC;
 
     /**
-     * @ORM\OneToMany(targetEntity=Produit::class, mappedBy="categorie")
+     * @ORM\ManyToMany(targetEntity=Produit::class, mappedBy="categories")
      */
     private $produits;
+
+    
 
     public function __construct()
     {
@@ -80,7 +82,7 @@ class Categorie
     {
         if (!$this->produits->contains($produit)) {
             $this->produits[] = $produit;
-            $produit->setCategorie($this);
+            $produit->addCategory($this);
         }
 
         return $this;
@@ -89,12 +91,11 @@ class Categorie
     public function removeProduit(Produit $produit): self
     {
         if ($this->produits->removeElement($produit)) {
-            // set the owning side to null (unless already changed)
-            if ($produit->getCategorie() === $this) {
-                $produit->setCategorie(null);
-            }
+            $produit->removeCategory($this);
         }
 
         return $this;
     }
+
+   
 }
