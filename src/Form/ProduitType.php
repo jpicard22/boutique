@@ -18,7 +18,7 @@ class ProduitType extends AbstractType
         $builder
             ->add('libelle', TextType::class)
             ->add('reference', TextType::class)
-            ->add('prix', MoneyType::class)
+            ->add('prix') //, MoneyType::class)
             ->add('stock')
             ->add('image') //, FileType::class)
         ;
